@@ -1,0 +1,12 @@
+services:
+  filebrowser:
+    container_name: filebrowser
+    image: filebrowser/filebrowser
+    user: "0:0"
+    ports:
+      - 8080:80
+    volumes:
+      - /mnt/exfat:/srv
+      - /opt/stacks/filebrowser/data/database.db:/database.db
+      - /opt/stacks/filebrowser/config/filebrowser.json:/.filebrowser.json
+    restart: always
